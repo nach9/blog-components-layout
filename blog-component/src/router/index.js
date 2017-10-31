@@ -19,7 +19,7 @@ export default new Router({
       path: '/blog',
       name: 'Blog',
       component: Blog,
-      child: [
+      children: [
         {
           path: '',
           name: 'Bloglist',
@@ -28,7 +28,8 @@ export default new Router({
         {
           path: ':id',
           name: 'Blogdetail',
-          component: Blogdetail
+          component: Blogdetail,
+          props: true
         }
       ]
     }

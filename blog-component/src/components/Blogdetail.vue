@@ -1,14 +1,14 @@
 <template lang="html">
 
   <div class="panel panel-primary">
-  <div class="panel-heading">Panel heading</div>
+  <div class="panel-heading">{{article.title}}</div>
   <div class="panel-body ">
         <div class="col-md-12 articledetail" >
-          <img src="http://photos1.meetupstatic.com/photos/event/6/5/8/c/600_448885996.jpeg" class="img-responsive" alt="" align="middle">
+          <img :src="article.imgUrl" class="img-responsive" alt="" align="middle">
         </div>
         <div class="col-md-12">
           <div class="">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              {{article.content}}
           </div>
         </div>
   </div>
@@ -17,6 +17,31 @@
 
 <script>
 export default {
+  props: ['id'],
+  data: function () {
+    return {
+      article: {}
+    }
+  },
+  methods: {
+    getDetail (id) {
+      this.$http.get(`http://localhost:3000/api/articles/` + id)
+      .then(({data}) => {
+        console.log(data)
+        this.article = data
+      }).catch(err => {
+        console.log(err)
+      })
+    }
+  },
+  mounted () {
+    this.getDetail(this.id)
+  },
+  watch: {
+    id (newID) {
+      this.getDetail(newID)
+    }
+  }
 }
 </script>
 

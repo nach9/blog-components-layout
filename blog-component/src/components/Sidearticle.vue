@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="panel-body" >
-    <router-link  class="list-group-item"  v-for="(article,index) in articles" :to="'/blog/' + index" :key="index" >{{article.title}}</router-link>
+    <router-link  class="list-group-item"  v-for="(article,index) in articles" :to="'/blog/' + article._id" :key="index" >{{article.title}}</router-link>
   </div>
 </template>
 

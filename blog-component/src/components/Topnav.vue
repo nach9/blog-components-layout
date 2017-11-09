@@ -16,8 +16,14 @@
             <li>
               <router-link to="/">Home <span class="sr-only">(current)</span></router-link>
             </li>
-            <li>
-              <router-link to="/blog">Blog</router-link>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><router-link to="/blog">View</router-link></li>
+                <li><router-link to="/add">Add</router-link></li>
+
+              </ul>
             </li>
           </ul>
 

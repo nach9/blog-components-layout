@@ -2,6 +2,7 @@
 
   <!-- <Blogn :articles='articles'></Blogn> -->
   <div class="">
+    
     <div class="panel panel-primary" v-for="(article,index) in articles" :key="index">
       <div class="panel-heading">{{article.title}}</div>
       <div class="panel-body">
@@ -9,12 +10,12 @@
           <div class="">
             <img :src="article.imgUrl" class="img-responsive" alt="">
           </div>
-          <div class="buttondetail">
-            <router-link :to="'/blog/' + index" class="btn btn-warning">Detail</router-link>
-          </div>
         </div>
         <div class="col-md-8">
-          <p>{{article.content}}</p>
+          <p>{{article.content.substring(0,100)}} ...</p>
+          <div class="buttondetail">
+            <router-link :to="'/blog/' + article._id" class="btn btn-warning">Detail</router-link>
+          </div>
         </div>
 
       </div>

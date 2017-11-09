@@ -5,6 +5,7 @@ import Home from '@/components/Home'
 import Blog from '@/components/Blog'
 import Bloglist from '@/components/Bloglist'
 import Blogdetail from '@/components/Blogdetail'
+import Blogadd from '@/components/Blogadd'
 
 Vue.use(Router)
 
@@ -32,6 +33,12 @@ export default new Router({
           props: true
         }
       ]
+    },
+    {
+      path: '/add',
+      name: 'Blogadd',
+      component: Blogadd
     }
+
   ]
 })
